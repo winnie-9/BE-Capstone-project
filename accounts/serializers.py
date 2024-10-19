@@ -32,7 +32,6 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError('Invalid credentials')
         return data
 
-
         
 
 

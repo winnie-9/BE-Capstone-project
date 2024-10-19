@@ -2,7 +2,7 @@
     "builds": [{
         "src": "fitness_tracker_api/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python-3.12.7" }
+        "config": { "maxLambdaSize": "15mb", "runtime": "python-3.12.6" }
     }],
     "routes": [
         {
