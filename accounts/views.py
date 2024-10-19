@@ -21,6 +21,8 @@ class RegisterView(CreateAPIView):
 class LoginView(APIView):
     serializer_class = LoginSerializer
 
+    
+
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)

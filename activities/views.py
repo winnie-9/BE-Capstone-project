@@ -12,6 +12,7 @@ from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 from .serializers import ActivityMetricsSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
@@ -26,6 +27,13 @@ class ActivityViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     authentication_classes = [JWTAuthentication]
+
+    
+
+class ActivityViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    #...
+
 
     filterset_class = ActivityFilter
     search_fields = ['activity_type']
