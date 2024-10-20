@@ -30,9 +30,17 @@ class ActivityViewSet(viewsets.ModelViewSet):
 
     
 
-class ActivityViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
-    #...
+#class ActivityViewSet(viewsets.ModelViewSet):
+    # permission_classes = [IsAuthenticated]
+
+
+    # def post(self, request, *args, **kwargs):
+    #     # Create a new activity metric
+    #     serializer = self.serializer_class(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save()
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED) 
+
 
 
     filterset_class = ActivityFilter

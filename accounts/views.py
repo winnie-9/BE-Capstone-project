@@ -20,15 +20,21 @@ class RegisterView(CreateAPIView):
 
 class LoginView(APIView):
     serializer_class = LoginSerializer
+    
 
+    
+    
+   
     
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = authenticate(username=serializer.validated_data['username'], password=serializer.validated_data['password'])
-
-        if user and user.is_active:
+    
+        
+        if user and user.is_active: 
+            
             login(request, user)
             return Response({'id': user.id, 'username': user.username, 'message':'Login successful'}, status=status.HTTP_200_OK)
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
